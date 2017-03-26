@@ -1,6 +1,12 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="refresh" content="900">
+	<title>Retweet Bot | Home</title>
+</head>
+<body>
 
-//echo "Hello World!";
+<?php
 
 use Codebird\Codebird;
 require "vendor/autoload.php";
@@ -24,10 +30,7 @@ foreach ($tweets as $key => $tweet) {
 		echo $tweet['text'] . "<br><br>";
 		$response = $cb->statuses_retweet_ID(array('id' => $theTweet));
 }
+?>
 
-//$response = $cb->statuses_retweet_ID(array('id' => '845964818154610688'));
-
-/*echo "<pre>";
-print_r($tweets);
-var_dump($mentions);
-*/
+</body>
+</html>
