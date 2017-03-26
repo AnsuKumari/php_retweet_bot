@@ -15,6 +15,19 @@ $cb->setToken("840466523324055552-WX3NyVAzKsT85BqY9mAvl6lqamRSUMJ", "gGFcHxhDIA1
 $mentions = $cb->statuses_mentionsTimeline();
 $tweets = (array) $cb->statuses_homeTimeline();
 
-foreach ($tweets as $key => $tweet)
+echo "<pre>";
+print_r($tweets);
+
+foreach ($tweets as $key => $tweet) {
 	if(isset($tweet['id']) && preg_match("/campusforgbpec/i", $tweet['text']))
+		$theTweet = $tweet['id'];
 		echo $tweet['text'] . "<br><br>";
+		$response = $cb->statuses_retweet_ID(array('id' => $theTweet));
+}
+
+//$response = $cb->statuses_retweet_ID(array('id' => '845964818154610688'));
+
+/*echo "<pre>";
+print_r($tweets);
+var_dump($mentions);
+*/
